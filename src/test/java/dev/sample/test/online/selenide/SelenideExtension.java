@@ -1,10 +1,10 @@
 package dev.sample.test.online.selenide;
 
+import dev.sample.test.online.utils.ScreenshotSupport;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.extension.BeforeAllCallback;
 import org.junit.jupiter.api.extension.BeforeEachCallback;
 import org.junit.jupiter.api.extension.ExtensionContext;
-import dev.sample.test.online.utils.ScreenshotSupport;
 
 public class SelenideExtension implements BeforeAllCallback, BeforeEachCallback {
 

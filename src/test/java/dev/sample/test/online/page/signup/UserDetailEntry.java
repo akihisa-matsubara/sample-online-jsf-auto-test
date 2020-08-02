@@ -1,26 +1,20 @@
 package dev.sample.test.online.page.signup;
 
-import static com.codeborne.selenide.Condition.*;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindBy;
 import dev.sample.common.code.GenderVo;
-import dev.sample.test.online.constant.Styles;
 import dev.sample.test.online.page.Parts;
 import dev.sample.test.online.selenide.Events;
-import dev.sample.test.online.utils.ScreenshotUtils;
+import dev.sample.test.online.selenide.Items;
+import java.util.List;
+import java.util.Map;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.support.FindBy;
 
 public class UserDetailEntry extends Parts {
 
-  public static Map<String, Integer> genderOrderMap;
+  private static Map<String, Integer> genderIndexMap;
 
   static {
-    genderOrderMap = new ConcurrentHashMap<String, Integer>();
-    for (int i = 0; i < GenderVo.values().length; i++) {
-      genderOrderMap.put(GenderVo.values()[i].getCode(), i);
-    }
+    genderIndexMap = Items.getIndexMap(GenderVo.class);
   }
 
   @FindBy(id = "nameKanji")
@@ -36,53 +30,79 @@ public class UserDetailEntry extends Parts {
   @FindBy(id = "address")
   private SelenideElement address;
 
-  public void next(String nameKanji, String nameKana, String gender, String birthday, String addressZip, String address) {
-    // input
-    this.nameKanji.val(nameKanji);
-    this.nameKana.val(nameKana);
-    this.gender.get(genderOrderMap.get(gender)).parent().click();
-    this.birthday.val(birthday);
-    this.addressZip.val(addressZip);
-    this.address.val(address);
+  public void input(String nameKanji, String nameKana, GenderVo gender, String birthday, String addressZip, String address) {
+    setNameKanji(nameKanji);
+    setNameKana(nameKana);
+    setGender(gender);
+    setBirthday(birthday);
+    setAddressZip(addressZip);
+    setAddress(address);
 
     Events.blur();
+  }
 
-    // verify
-    this.nameKanji.should(cssClass(Styles.VALIDATION_SUCCESSFULL));
-    this.nameKana.should(cssClass(Styles.VALIDATION_SUCCESSFULL));
-    this.birthday.should(cssClass(Styles.VALIDATION_SUCCESSFULL));
-    this.addressZip.should(cssClass(Styles.VALIDATION_SUCCESSFULL));
-    this.address.should(cssClass(Styles.VALIDATION_SUCCESSFULL));
-
-    // action
+  public void next(String nameKanji, String nameKana, GenderVo gender, String birthday, String addressZip, String address) {
+    input(nameKanji, nameKana, gender, birthday, addressZip, address);
     super.next();
   }
 
-  public void verifyValidationError(String nameKanji, String nameKana, String addressZip, String address) {
-    // input
-    this.nameKanji.val(nameKanji);
-    this.nameKana.val(nameKana);
-    this.addressZip.val(addressZip);
-    this.address.val(address);
+  public void clear() {
+    nameKanji.clear();
+    nameKana.clear();
+    // gender can't clear
+    birthday.clear();
+    addressZip.clear();
+    address.clear();
 
     Events.blur();
-
-    // verify
-    this.nameKanji.should(cssClass(Styles.VALIDATION_FAILED));
-    this.nameKana.should(cssClass(Styles.VALIDATION_FAILED));
-    this.addressZip.should(cssClass(Styles.VALIDATION_FAILED));
-    this.address.should(cssClass(Styles.VALIDATION_FAILED));
-    ScreenshotUtils.takeScreenshotInvalidAfter();
   }
 
-  public void clear() {
-    this.nameKanji.clear();
-    this.nameKana.clear();
-    // gender doesn't clear
-    this.birthday.clear();
-    this.addressZip.clear();
-    this.address.clear();
-    Events.blur();
+  public String getNameKanji() {
+    return nameKanji.val();
+  }
+
+  public void setNameKanji(String nameKanji) {
+    this.nameKanji.val(nameKanji);
+  }
+
+  public String getNameKana() {
+    return nameKana.val();
+  }
+
+  public void setNameKana(String nameKana) {
+    this.nameKana.val(nameKana);
+  }
+
+  public GenderVo getGender() {
+    return Items.getRadioCode(this.gender, GenderVo.class);
+  }
+
+  public void setGender(GenderVo gender) {
+    Items.setRadioCode(this.gender, genderIndexMap, gender);
+  }
+
+  public String getBirthday() {
+    return birthday.val();
+  }
+
+  public void setBirthday(String birthday) {
+    this.birthday.val(birthday);
+  }
+
+  public String getAddressZip() {
+    return addressZip.val();
+  }
+
+  public void setAddressZip(String addressZip) {
+    this.addressZip.val(addressZip);
+  }
+
+  public String getAddress() {
+    return address.val();
+  }
+
+  public void setAddress(String address) {
+    this.address.val(address);
   }
 
 }

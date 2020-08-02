@@ -1,4 +1,4 @@
-package dev.sample.test.online.scenario;
+package dev.sample.test.online;
 
 import com.codeborne.selenide.Configuration;
 

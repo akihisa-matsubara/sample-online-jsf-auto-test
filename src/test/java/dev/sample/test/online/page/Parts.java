@@ -1,9 +1,9 @@
 package dev.sample.test.online.page;
 
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindBy;
 import dev.sample.test.online.enumeration.Actions;
 import dev.sample.test.online.utils.ScreenshotUtils;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.support.FindBy;
 
 public abstract class Parts {
 

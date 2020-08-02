@@ -1,7 +1,7 @@
 package dev.sample.test.online.selenide;
 
-import com.codeborne.selenide.Selenide;
 import dev.sample.test.online.utils.ScreenshotUtils;
+import com.codeborne.selenide.Selenide;
 
 public class Pages {
 

@@ -1,12 +1,9 @@
 package dev.sample.test.online.page.signup;
 
-import static com.codeborne.selenide.Condition.*;
-import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.support.FindBy;
-import dev.sample.test.online.constant.Styles;
 import dev.sample.test.online.page.Parts;
 import dev.sample.test.online.selenide.Events;
-import dev.sample.test.online.utils.ScreenshotUtils;
+import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.support.FindBy;
 
 public class UserInfoEntry extends Parts {
 
@@ -19,46 +16,59 @@ public class UserInfoEntry extends Parts {
   @FindBy(id = "passwordConfirm")
   private SelenideElement passwordConfirm;
 
-  public void next(String username, String email, String password, String passwordConfirm) {
-    // input
-    this.username.val(username);
-    this.email.val(email);
-    this.password.val(password);
-    this.passwordConfirm.val(passwordConfirm);
+  public void input(String username, String email, String password, String passwordConfirm) {
+    setUsername(username);
+    setEmail(email);
+    setPassword(password);
+    setPasswordConfirm(passwordConfirm);
 
     Events.blur();
+  }
 
-    // verify
-    this.username.should(cssClass(Styles.VALIDATION_SUCCESSFULL));
-    this.password.should(cssClass(Styles.VALIDATION_SUCCESSFULL));
-
-    // action
+  public void next(String username, String email, String password, String passwordConfirm) {
+    input(username, email, password, passwordConfirm);
     super.next();
   }
 
-  public void verifyValidationError(String username, String email, String password, String passwordConfirm) {
-    // input
-    this.username.val(username);
-    this.email.val(email);
-    this.password.val(password);
-    this.passwordConfirm.val(password);
+  public void clear() {
+    username.clear();
+    email.clear();
+    password.clear();
+    passwordConfirm.clear();
 
     Events.blur();
-
-    // verify
-    this.username.should(cssClass(Styles.VALIDATION_FAILED));
-    this.email.should(cssClass(Styles.VALIDATION_FAILED));
-    this.password.should(cssClass(Styles.VALIDATION_FAILED));
-    this.passwordConfirm.should(cssClass(Styles.VALIDATION_FAILED));
-    ScreenshotUtils.takeScreenshotInvalidAfter();
   }
 
-  public void clear() {
-    this.username.clear();
-    this.email.clear();
-    this.password.clear();
-    this.passwordConfirm.clear();
-    Events.blur();
+  public String getUsername() {
+    return username.val();
+  }
+
+  public void setUsername(String username) {
+    this.username.val(username);
+  }
+
+  public String getEmail() {
+    return email.val();
+  }
+
+  public void setEmail(String email) {
+    this.email.val(email);
+  }
+
+  public String getPassword() {
+    return password.val();
+  }
+
+  public void setPassword(String password) {
+    this.password.val(password);
+  }
+
+  public String getPasswordConfirm() {
+    return passwordConfirm.val();
+  }
+
+  public void setPasswordConfirm(String passwordConfirm) {
+    this.passwordConfirm.val(passwordConfirm);
   }
 
 }

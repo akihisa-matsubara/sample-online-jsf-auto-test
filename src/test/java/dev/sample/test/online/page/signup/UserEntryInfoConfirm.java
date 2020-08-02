@@ -1,8 +1,8 @@
 package dev.sample.test.online.page.signup;
 
+import dev.sample.test.online.page.Parts;
 import com.codeborne.selenide.SelenideElement;
 import org.openqa.selenium.support.FindBy;
-import dev.sample.test.online.page.Parts;
 
 public class UserEntryInfoConfirm extends Parts {
 

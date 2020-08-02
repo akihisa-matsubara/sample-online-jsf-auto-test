@@ -1,3 +1,3 @@
-testNo,desc,username,email,password,nameKanji,nameKana,gender,birthday,addressZip,address
-1-1,全項目最大桁数入力,XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX,XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@X.X,XXXXXXXXXXXXXXX,ああああああああああああああああああああ,アアアアアアアアアアアアアアアアアアアア,2,2020-12-31,9999999,ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
-1-2,全項目最小桁数入力,X,X@X.X,X,あ,ア,1,2010-01-01,9999999,あ
+testNo,desc,expected,username,email,password,nameKanji,nameKana,gender,birthday,addressZip,address
+1-1,ユーザー登録完了画面に遷移していること(全項目最大桁数入力),/userEntryComplete.xhtml,XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX,XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@X.X,XXXXXXXXXXXXXXX,ああああああああああああああああああああ,アアアアアアアアアアアアアアアアアアアア,2,2020-12-31,9999999,ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+1-2,ユーザー登録完了画面に遷移していること(全項目最小桁数入力),/userEntryComplete.xhtml,X,X@X.X,X,あ,ア,1,2010-01-01,9999999,あ
