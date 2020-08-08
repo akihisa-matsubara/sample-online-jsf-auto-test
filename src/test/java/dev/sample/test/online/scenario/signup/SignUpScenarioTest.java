@@ -4,9 +4,9 @@ import static org.assertj.core.api.Assertions.*;
 import dev.sample.common.code.GenderVo;
 import dev.sample.common.util.CodeUtils;
 import dev.sample.test.online.AbstractSelenideTest;
-import dev.sample.test.online.page.signup.UserDetailEntry;
-import dev.sample.test.online.page.signup.UserEntryInfoConfirm;
-import dev.sample.test.online.page.signup.UserInfoEntry;
+import dev.sample.test.online.page.signup.UserDetailEntryPage;
+import dev.sample.test.online.page.signup.UserEntryInfoConfirmPage;
+import dev.sample.test.online.page.signup.UserInfoEntryPage;
 import dev.sample.test.online.page.top.TopPage;
 import dev.sample.test.online.selenide.Pages;
 import dev.sample.test.online.selenide.SelenideExtension;
@@ -21,7 +21,7 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 @ExtendWith({ScreenShooterExtension.class, SelenideExtension.class})
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class SignUpTest extends AbstractSelenideTest {
+class SignUpScenarioTest extends AbstractSelenideTest {
 
   @DisplayName("ユーザー登録シナリオテスト")
   @Nested
@@ -41,15 +41,15 @@ class SignUpTest extends AbstractSelenideTest {
       topPage.signUp();
 
       // -- user info entry --------------------
-      UserInfoEntry userInfoEntry = Pages.page(UserInfoEntry.class);
+      UserInfoEntryPage userInfoEntry = Pages.page(UserInfoEntryPage.class);
       userInfoEntry.next(username, email, password, password);
 
       // -- user detail entry ------------------
-      UserDetailEntry userDetailEntry = Pages.page(UserDetailEntry.class);
+      UserDetailEntryPage userDetailEntry = Pages.page(UserDetailEntryPage.class);
       userDetailEntry.next(nameKanji, nameKana, CodeUtils.decode(gender, GenderVo.class), birthday, addressZip, address);
 
       // -- user entry info confirm ------------
-      UserEntryInfoConfirm userEntryInfoConfirm = Pages.page(UserEntryInfoConfirm.class);
+      UserEntryInfoConfirmPage userEntryInfoConfirm = Pages.page(UserEntryInfoConfirmPage.class);
       userEntryInfoConfirm.confirmed();
 
       // -- user entry complete ----------------

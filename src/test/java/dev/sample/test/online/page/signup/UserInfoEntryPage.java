@@ -3,9 +3,11 @@ package dev.sample.test.online.page.signup;
 import dev.sample.test.online.page.Parts;
 import dev.sample.test.online.selenide.Events;
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 
-public class UserInfoEntry extends Parts {
+@Getter
+public class UserInfoEntryPage extends Parts {
 
   @FindBy(id = "username")
   private SelenideElement username;
@@ -17,9 +19,9 @@ public class UserInfoEntry extends Parts {
   private SelenideElement passwordConfirm;
 
   public void input(String username, String email, String password, String passwordConfirm) {
-    setUsername(username);
-    setEmail(email);
-    setPassword(password);
+    setUsernameVal(username);
+    setEmailVal(email);
+    setPasswordVal(password);
     setPasswordConfirm(passwordConfirm);
 
     Events.blur();
@@ -39,31 +41,31 @@ public class UserInfoEntry extends Parts {
     Events.blur();
   }
 
-  public String getUsername() {
+  public String getUsernameVal() {
     return username.val();
   }
 
-  public void setUsername(String username) {
+  public void setUsernameVal(String username) {
     this.username.val(username);
   }
 
-  public String getEmail() {
+  public String getEmailVal() {
     return email.val();
   }
 
-  public void setEmail(String email) {
+  public void setEmailVal(String email) {
     this.email.val(email);
   }
 
-  public String getPassword() {
+  public String getPasswordVal() {
     return password.val();
   }
 
-  public void setPassword(String password) {
+  public void setPasswordVal(String password) {
     this.password.val(password);
   }
 
-  public String getPasswordConfirm() {
+  public String getPasswordConfirmVal() {
     return passwordConfirm.val();
   }
 

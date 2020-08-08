@@ -7,9 +7,11 @@ import dev.sample.test.online.selenide.Items;
 import java.util.List;
 import java.util.Map;
 import com.codeborne.selenide.SelenideElement;
+import lombok.Getter;
 import org.openqa.selenium.support.FindBy;
 
-public class UserDetailEntry extends Parts {
+@Getter
+public class UserDetailEntryPage extends Parts {
 
   private static Map<String, Integer> genderIndexMap;
 
@@ -31,12 +33,12 @@ public class UserDetailEntry extends Parts {
   private SelenideElement address;
 
   public void input(String nameKanji, String nameKana, GenderVo gender, String birthday, String addressZip, String address) {
-    setNameKanji(nameKanji);
-    setNameKana(nameKana);
-    setGender(gender);
-    setBirthday(birthday);
-    setAddressZip(addressZip);
-    setAddress(address);
+    setNameKanjiVal(nameKanji);
+    setNameKanaVal(nameKana);
+    setGenderVal(gender);
+    setBirthdayVal(birthday);
+    setAddressZipVal(addressZip);
+    setAddressVal(address);
 
     Events.blur();
   }
@@ -57,51 +59,51 @@ public class UserDetailEntry extends Parts {
     Events.blur();
   }
 
-  public String getNameKanji() {
+  public String getNameKanjiVal() {
     return nameKanji.val();
   }
 
-  public void setNameKanji(String nameKanji) {
+  public void setNameKanjiVal(String nameKanji) {
     this.nameKanji.val(nameKanji);
   }
 
-  public String getNameKana() {
+  public String getNameKanaVal() {
     return nameKana.val();
   }
 
-  public void setNameKana(String nameKana) {
+  public void setNameKanaVal(String nameKana) {
     this.nameKana.val(nameKana);
   }
 
-  public GenderVo getGender() {
+  public GenderVo getGenderVal() {
     return Items.getRadioCode(this.gender, GenderVo.class);
   }
 
-  public void setGender(GenderVo gender) {
+  public void setGenderVal(GenderVo gender) {
     Items.setRadioCode(this.gender, genderIndexMap, gender);
   }
 
-  public String getBirthday() {
+  public String getBirthdayVal() {
     return birthday.val();
   }
 
-  public void setBirthday(String birthday) {
+  public void setBirthdayVal(String birthday) {
     this.birthday.val(birthday);
   }
 
-  public String getAddressZip() {
+  public String getAddressZipVal() {
     return addressZip.val();
   }
 
-  public void setAddressZip(String addressZip) {
+  public void setAddressZipVal(String addressZip) {
     this.addressZip.val(addressZip);
   }
 
-  public String getAddress() {
+  public String getAddressVal() {
     return address.val();
   }
 
-  public void setAddress(String address) {
+  public void setAddressVal(String address) {
     this.address.val(address);
   }
 

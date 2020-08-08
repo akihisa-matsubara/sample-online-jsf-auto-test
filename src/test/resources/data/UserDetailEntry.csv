@@ -1,0 +1,3 @@
+testNo,desc,expected,viewName,jsonFileName,nameKanji,nameKana,gender,birthday,addressZip,address
+1-1,単項目チェックOKスタイルが当たっていること、ユーザー入力情報確認画面に遷移していること(全項目最大桁数入力),/userEntryInfoConfirm.xhtml,ユーザー詳細情報,userDetailEntry-01-init.json,ああああああああああああああああああああ,アアアアアアアアアアアアアアアアアアアア,2,2020-12-31,9999999,ああああああああああああああああああああああああああああああああああああああああああああああああああああああああああああ
+1-2,単項目チェックOKスタイルが当たっていること、ユーザー入力情報確認画面に遷移していること(全項目最小桁数入力),/userEntryInfoConfirm.xhtml,ユーザー詳細情報,userDetailEntry-01-init.json,あ,ア,1,2010-01-01,9999999,あ

@@ -24,6 +24,8 @@ public abstract class Parts {
   private SelenideElement back;
   @FindBy(id = "next")
   private SelenideElement next;
+  @FindBy(id = "submit")
+  private SelenideElement submit;
   @FindBy(id = "confirmed")
   private SelenideElement confirmed;
   @FindBy(id = "goToTopPage")
@@ -57,6 +59,11 @@ public abstract class Parts {
   public void next() {
     ScreenshotUtils.takeScreenshotActionBefore(Actions.NEXT);
     this.next.click();
+  }
+
+  public void submit() {
+    ScreenshotUtils.takeScreenshotActionBefore(Actions.SUBMIT);
+    this.submit.click();
   }
 
   public void confirmed() {

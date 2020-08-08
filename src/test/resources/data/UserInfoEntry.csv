@@ -1,0 +1,3 @@
+testNo,desc,expected,viewName,jsonFileName,username,email,password
+1-1,単項目チェックOKスタイルが当たっていること、ユーザー詳細情報画面に遷移していること(全項目最大桁数入力),/userDetailEntry.xhtml,ユーザー情報登録,,XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX,XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@X.X,XXXXXXXXXXXXXXX
+1-2,単項目チェックOKスタイルが当たっていること、ユーザー詳細情報画面に遷移していること(全項目最小桁数入力),/userDetailEntry.xhtml,ユーザー情報登録,,X,X@X.X,X

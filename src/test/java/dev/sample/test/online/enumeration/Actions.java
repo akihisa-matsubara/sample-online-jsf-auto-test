@@ -20,6 +20,7 @@ public enum Actions {
   // common action
   BACK("click_back_button"),
   NEXT("click_next_button"),
+  SUBMIT("click_submit_button"),
   CONFIRMED("click_confirmed_button"),
   GO_TO_TOP_PAGE("click_go_to_top_page_button"),
   ;

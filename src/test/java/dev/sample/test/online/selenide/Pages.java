@@ -11,6 +11,12 @@ public class Pages {
     return page;
   }
 
+  public static <PageObjectClass> PageObjectClass openTestMenu(Class<PageObjectClass> pageObjectClass) {
+    PageObjectClass page = Selenide.open("/pages/testMenu.xhtml", pageObjectClass);
+    ScreenshotUtils.takeScreenshotInit();
+    return page;
+  }
+
   public static <PageObjectClass> PageObjectClass page(Class<PageObjectClass> pageObjectClass) {
     PageObjectClass page = Selenide.page(pageObjectClass);
     ScreenshotUtils.takeScreenshotInit();

@@ -1,0 +1,2 @@
+testNo,desc,viewName,jsonFileName,nameKanji,nameKana,gender,birthday,addressZip,address
+2-1,単項目チェックNGスタイルが当たっていること,ユーザー詳細情報,userDetailEntry-01-init.json,@,@,,@,@,@
